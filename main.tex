@@ -1,24 +1,28 @@
 \documentclass[12pt, a4paper]{article}
 
-\input{base/index.tex}         % For aligning equations among other
+\input{base/index.tex}
 \input{settings.tex}
 
 
 \begin{document}
 
-% Frontmatter
+% Front matter
 \include{frontmatter/frontpage.tex}
-\pagenumbering{roman}
+\pagestyle{frontmatter}
 \include{frontmatter/abstract.tex}
 \include{frontmatter/tableofcontents.tex}
 
 % Sections
-\pagenumbering{arabic}
+\pagestyle{main}
+
 \section{Hello, World!}
 \lipsum[1]
 
-% Backmatter
+\include{sections/conclusion.tex}
+
+% Back matter
 \include{backmatter/bibliography.tex}
 \include{backmatter/appendix.tex}
+\include{backmatter/glossaries.tex}
 
 \end{document}

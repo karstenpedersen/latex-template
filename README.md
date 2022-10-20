@@ -16,3 +16,4 @@ Figure      fig:name
 Algorithm   alg:name
 Chapter     ch:name
 Equation    eq:name
+Listing     lst:name

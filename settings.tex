@@ -4,66 +4,88 @@
 % Packages
 \usepackage{mlmodern} % Changes font to mlmodern
 
+\newcommand{\documenttype}{Master Thesis}
+\newcommand{\customtitle}{Thesis title}
+\newcommand{\thesubtitle}{Thesis subtitle}
+
+\newcommand{\theauthor}{Author} % Your name :)
+\newcommand{\studentnumber}{s123456}
+\newcommand{\thedate}{Date, year} % For example "June, 2019"
+
 % Information
-\title{Title}
-\author{Author}
+\title{\customtitle}
+\author{\theauthor}
 \date{\today}
 
 % Layout
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1.4ex}
+% -- Page styles
+\fancypagestyle{frontmatter}{% Front matter pages
+  \fancyhead{}
+  \fancyfoot{}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyfoot[R]{\footnotesize \thepage}
+  \fancyfoot[L]{\footnotesize \customtitle}
+  \fancyhfoffset{0pt}
+  \pagenumbering{roman}
+}
+\fancypagestyle{main}{% All normal pages
+  \fancyhead{}
+  \fancyfoot{}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyfoot[R]{\footnotesize \thepage}
+  \fancyfoot[L]{\footnotesize \customtitle}
+  \fancyhfoffset{0pt}
+  \pagenumbering{arabic}
+}
+
+% Limits the ToC to sections and subsections (no subsubsec.)
+\setcounter{tocdepth}{2}
 
 % Colors
 \newcommand{\targetcolourmodel}{cmyk} % rgb for a digital version, cmyk for a printed version. Only use lowercase
 \selectcolormodel{\targetcolourmodel}
-% -- Custom colors
-\definecolor{AccentColor}{RGB}{50, 115, 219}
-\definecolor{NeutralColor}{RGB}{3, 3, 3}
-% -- DTU https://www.designguide.dtu.dk/
-\definecolor{dtured}    {rgb/cmyk}{0.6,0,0 / 0,0.91,0.72,0.23}
-\definecolor{blue}      {rgb/cmyk}{0.1843,0.2431,0.9176 / 0.88,0.76,0,0}
-\definecolor{brightgreen}{rgb/cmyk}{0.1216,0.8157,0.5098 / 0.69,0,0.66,0}
-\definecolor{navyblue}  {rgb/cmyk}{0.0118,0.0588,0.3098 / 1,0.9,0,0.6}
-\definecolor{yellow}    {rgb/cmyk}{0.9647,0.8157,0.3019 / 0.05,0.17,0.82,0}
-\definecolor{orange}    {rgb/cmyk}{0.9882,0.4627,0.2039 / 0,0.65,0.86,0}
-\definecolor{pink}      {rgb/cmyk}{0.9686,0.7333,0.6941 / 0,0.35,0.26,0}
-\definecolor{grey}      {rgb/cmyk}{0.8549,0.8549,0.8549 / 0,0,0,0.2}
-\definecolor{red}       {rgb/cmyk}{0.9098,0.2471,0.2824 / 0,0.86,0.65,0}
-\definecolor{green}     {rgb/cmyk}{0,0.5333,0.2078 / 0.89,0.05,1,0.17}
-\definecolor{purple}    {rgb/cmyk}{0.4745,0.1373,0.5569 / 0.67,0.96,0,0}
+% -- Defining colors
+% ---- Custom colors
+\definecolor{accent}{RGB}{3, 3, 3}
+\definecolor{neutral}{RGB}{3, 3, 3}
+% ---- DTU colors https://www.designguide.dtu.dk/
+\definecolor{dtured}{rgb/cmyk}{0.6,0,0 / 0,0.91,0.72,0.23}
+\definecolor{dtublue}{rgb/cmyk}{0.1843,0.2431,0.9176 / 0.88,0.76,0,0}
+\definecolor{dtubrightgreen}{rgb/cmyk}{0.1216,0.8157,0.5098 / 0.69,0,0.66,0}
+\definecolor{dtunavyblue}{rgb/cmyk}{0.0118,0.0588,0.3098 / 1,0.9,0,0.6}
+\definecolor{dtuyellow}{rgb/cmyk}{0.9647,0.8157,0.3019 / 0.05,0.17,0.82,0}
+\definecolor{dtuorange}{rgb/cmyk}{0.9882,0.4627,0.2039 / 0,0.65,0.86,0}
+\definecolor{dtupink}{rgb/cmyk}{0.9686,0.7333,0.6941 / 0,0.35,0.26,0}
+\definecolor{dtugrey}{rgb/cmyk}{0.8549,0.8549,0.8549 / 0,0,0,0.2}
+\definecolor{dtured2}{rgb/cmyk}{0.9098,0.2471,0.2824 / 0,0.86,0.65,0}
+\definecolor{dtugreen}{rgb/cmyk}{0,0.5333,0.2078 / 0.89,0.05,1,0.17}
+\definecolor{dtupurple}{rgb/cmyk}{0.4745,0.1373,0.5569 / 0.67,0.96,0,0}
 % -- Set colors
-\colorlet{HeadingColor}{NeutralColor}
-
-% DTU colours for diagrams
-% You might want to make the front/back page background colour the first colour in the plot cycle list.
-\pgfplotscreateplotcyclelist{DTU}{%
-  dtured,         fill=dtured,        \\
-  blue,           fill=blue,          \\
-  brightgreen,    fill=brightgreen    \\
-  navyblue,       fill=navyblue       \\
-  yellow,         fill=yellow         \\
-  orange,         fill=orange         \\
-  grey,           fill=grey           \\
-  red,            fill=red            \\
-  green,          fill=green          \\
-  purple,         fill=purple         \\
-}
+% ---- Style
+\colorlet{headingColor}{neutral}
+\colorlet{headingSpacer}{gray}
+% ---- Listing (code)
+\colorlet{codekeyword}{dtublue}
+\colorlet{codecomment}{dtugreen}
+\colorlet{codestring}{dtupurple}
+\colorlet{coderule}{gray}
 
 % Styles
 % -- Change bullet style for level 1, 2 and 3 respectively for enumerate
-\renewcommand{\labelenumi}{\textbf{\textcolor{AccentColor}{\arabic*.}}} % level 1
-\renewcommand{\labelenumii}{\textbf{\textcolor{AccentColor}{[\alph*]}}} % level 2
-\renewcommand{\labelenumiii}{\textbf{\textcolor{AccentColor}{\roman*.}}} % level 3
+\renewcommand{\labelenumi}{\textbf{\textcolor{accent}{\arabic*.}}} % level 1
+\renewcommand{\labelenumii}{\textbf{\textcolor{accent}{[\alph*]}}} % level 2
+\renewcommand{\labelenumiii}{\textbf{\textcolor{accent}{\roman*.}}} % level 3
 % -- Change bullet style for level 1, 2 and 3 respectively for itemize
-\renewcommand{\labelitemi}{\scriptsize\textcolor{AccentColor}{$\blacksquare$}} % level 1
-\renewcommand{\labelitemii}{\scriptsize\textcolor{AccentColor}{$\square$}} % level 2
-\renewcommand{\labelitemiii}{\textcolor{AccentColor}{$\circ$}} % level 3
-
+\renewcommand{\labelitemi}{\scriptsize\textcolor{accent}{$\blacksquare$}} % level 1
+\renewcommand{\labelitemii}{\scriptsize\textcolor{accent}{$\square$}} % level 2
+\renewcommand{\labelitemiii}{\textcolor{accent}{$\circ$}} % level 3
 % -- Chapter, section, subsection and subsubsection
-\titleformat{\chapter}{\sffamily\color{HeadingColor}\Huge\bfseries}{\thesection\enskip\color{gray}\textbar\enskip}{0cm}{\raggedright}
-\titleformat{\section}{\sffamily\color{HeadingColor}\Large\bfseries}{\thesection\enskip\color{gray}\textbar\enskip}{0cm}{\raggedright}
-\titleformat{\subsection}{\sffamily\color{HeadingColor}\large\bfseries}{\thesubsection\enskip\color{gray}\textbar\enskip}{0cm}{\raggedright}
-\titleformat{\subsubsection}{\sffamily\color{HeadingColor}\normalsize\bfseries}{\thesubsubsection\enskip\color{gray}\textbar\enskip}{0cm}{\raggedright}
+\titleformat{\chapter}{\sffamily\color{headingColor}\Huge\bfseries}{\thesection\enskip\color{headingSpacer}\textbar\enskip}{0cm}{\raggedright}
+\titleformat{\section}{\sffamily\color{headingColor}\Large\bfseries}{\thesection\enskip\color{headingSpacer}\textbar\enskip}{0cm}{\raggedright}
+\titleformat{\subsection}{\sffamily\color{headingColor}\large\bfseries}{\thesubsection\enskip\color{headingSpacer}\textbar\enskip}{0cm}{\raggedright}
+\titleformat{\subsubsection}{\sffamily\color{headingColor}\normalsize\bfseries}{\thesubsubsection\enskip\color{headingSpacer}\textbar\enskip}{0cm}{\raggedright}
 % -- Abstract
 \renewenvironment{abstract}{
   \section*{\abstractname}
@@ -75,17 +97,71 @@
 \counterwithin{figure}{section} % For figures
 \counterwithin{table}{section} % For tables
 % -- Formats captions
-\DeclareCaptionFont{AccentColor}{\color{AccentColor}}
-\captionsetup{labelfont={AccentColor, bf}}
+\DeclareCaptionFont{accent}{\color{accent}}
+\captionsetup{labelfont={accent, bf}}
 
 % Sets up hyperlinks in the document to be colored
 \hypersetup{
   colorlinks=true,
-  linkcolor=AccentColor,
-  urlcolor=AccentColor,
-  citecolor=AccentColor
+  linkcolor=accent,
+  urlcolor=accent,
+  citecolor=accent
 }
 \urlstyle{same} % Defines settings for link and reference formatting
 
-% Limits the ToC to sections and subsections (no subsubsec.)
-\setcounter{tocdepth}{2}
+% Setup for diagrams and graphs (tikz pictures)
+\usetikzlibrary{spy}    % For magnifying anything within a tikzpicture, see the line graph
+\usepgfplotslibrary{statistics} % Package for the boxplot
+\pgfplotsset{ % Setup for diagrams
+  compat=newest,
+  major x grid style={line width=0.5pt,draw=dtugrey},
+  major y grid style={line width=0.5pt,draw=dtugrey},
+  legend style={at={(0.5,-0.1)}, anchor=north,fill=none,draw=none,legend columns=-1,/tikz/every even column/.append style={column sep=10pt}},
+  axis line style={draw=none},
+  tick style={draw=none},
+  every axis/.append style={ultra thick},
+  tick label style={/pgf/number format/assume math mode}, % To apply main font to tick labels (numbers on the axis)
+}
+\tikzset{every mark/.append style={scale=1.5}}
+
+% Listings setup
+\lstset{ % \lstdefinestyle{mystyle}{}\lstset{style=mystyle}
+  basicstyle=\small\ttfamily,% the size of the fonts that are used for the code
+  commentstyle=\color{codecomment}, % comment style
+  keywordstyle=\bfseries\ttfamily\color{codekeyword}, % keyword style
+  numberstyle=\sffamily\tiny\color{coderule}, % the style that is used for the line-numbers
+  stringstyle=\color{codestring}, % string literal style
+  rulecolor=\color{coderule}, % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (dtugreen here))
+  breakatwhitespace=false, % sets if automatic breaks should only happen at whitespace
+  breaklines=true, % sets automatic line breaking
+  captionpos=b, % sets the caption-position to bottom
+  deletekeywords={}, % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)}, % if you want to add LaTeX within your code
+  frame=single, % adds a frame around the code
+  xleftmargin=4pt,
+  morekeywords={*,...}, % if you want to add more keywords to the set
+  numbers=left, % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=10pt, % how far the line-numbers are from the code
+  showspaces=false, % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false, % underline spaces within strings only
+  showtabs=false, % show tabs within strings adding particular underscores
+  stepnumber=1, % the step between two line-numbers. If it's 1, each line will be numbered
+  tabsize=2, % sets default tab size to 2 spaces
+  title=\lstname, % show the filename of files included with \lstinputlisting; also try caption instead of title,
+  columns=flexible,
+}
+
+% DTU colours for diagrams
+% You might want to make the front/back page background colour the first colour in the plot cycle list.
+\pgfplotscreateplotcyclelist{DTU}{%
+  dtured, fill=dtured, \\
+  dtublue, fill=dtublue, \\
+  dtubrightgreen, fill=dtubrightgreen \\
+  dtunavyblue, fill=dtunavyblue \\
+  dtuyellow, fill=dtuyellow \\
+  dtuorange, fill=dtuorange \\
+  dtugrey, fill=dtugrey \\
+  dtured2, fill=dtured2 \\
+  dtugreen, fill=dtugreen \\
+  dtupurple, fill=dtupurple \\
+}
