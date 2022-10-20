@@ -1,56 +1,62 @@
+% * Packages
 
 
-% Packages
-
-% Language
-\usepackage[english]{babel}     % Set to danish
+% * Page
+% -- Styling
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{geometry} % Allows for custom (wider) margins
+\usepackage{microtype} % Slightly loosens margin restrictions for nicer spacing
+\usepackage{titlesec} % Used to create custom section and subsection titles
+\usepackage{titletoc} % Used to create a custom ToC
+\usepackage{fancyhdr} % Adds customization for headers and footers
+\usepackage[shortlabels]{enumitem} % Adds additional customization for itemize.
+\usepackage{graphicx} % Allows the use of \begin{figure} and \includegraphics
+\usepackage{xcolor} % Package for defining DTU colours to be used
+% -- Language
+\usepackage[english]{babel} % Language
 \usepackage[utf8]{inputenc}
-
-\usepackage{graphicx}
-\usepackage{amssymb}
-\usepackage{xcolor}             % Package for defining DTU colours to be used
-\usepackage{siunitx}            % SI units
-% Math
-\usepackage{amsmath}            % For aligning equations among other
-% Referencing
-\usepackage{hyperref}           % Package for cross referencing
-\usepackage{cleveref}           % improved cross referencing
-% \PassOptionsToPackage{hyphens}{url} % Ability to line break urls at hyphens
-% Code and algorithms
-\usepackage{listings}           % Package for inserting code
-\usepackage{algorithm}          % Algorithms https://www.overleaf.com/learn/latex/Algorithms
-\usepackage{algpseudocode}      % Pseudo code
-% Utilities
-\usepackage{calc}               % Adds ability for latex to calculate (3pt+2pt)
-\usepackage{blindtext}          % Placeholder text
-% \usepackage[printwatermark=false]{xwatermark} % Package for watermark. Toggle printwatermark true or false to include or remove the watermark
-% Drawing
-\usepackage{tikz}               % Package for drawing
-\usepackage{pgfplots}           % Package for creating graphs and charts [MAYBE]
-% Styling
-% \usepackage{fontspec}           % Package for custom fonts
-\usepackage[]{geometry}         % Package for changing page margins
-\usepackage{fancyhdr}           % Package to change header and footer
-\usepackage{parskip}            % Package to tweak paragraph skipping
-\usepackage{titlesec}           %
-\usepackage{caption}            % better captions
-\usepackage{subcaption}         % for sub figures
-% Bibliography & quotes
-\usepackage{csquotes}           % For biblatex with babel
+% -- Appendix
+\usepackage{appendix} % Any chapter after \appendix is given a letter as index
+% -- Bibliography
+\usepackage{csquotes} % For biblatex with babel
+\usepackage[nottoc,numbib]{tocbibind} % Automatically adds bibliography to ToC
 \usepackage[backend=biber,style=authoryear,sorting=none]{biblatex} % Package for bibliography (citing)
-\bibliography{bibliography.bib}
-% Acronyms TODO - FIX
+\addbibresource{bibliography.bib}
+% ! -- Acronyms
 \usepackage[automake]{glossaries}
 \usepackage[acronym]{glossaries-extra}
-% Tweaks
-\usepackage{tabularx}       % for ability to adjust column spacing in tabular better
-\usepackage{booktabs}       % for better tables
-\usepackage{float}          % floating figures in correct places
-% Debug
-% \usepackage{showlabels}   % Display label names
+% -- Referencing
+\usepackage{hyperref}           % Package for cross referencing
+\usepackage{cleveref}           % improved cross referencing
+\PassOptionsToPackage{hyphens}{url} % Ability to line break urls at hyphens
 
+% * Figures
+\usepackage{float} % floating figures in correct places
+\usepackage{caption} % Adds additional customization for (figure) captions
+\usepackage{subcaption} % Needed to create sub-figures
+% -- Tables
+% \usepackage{tabularx} % Adds additional customization for tables
+% \usepackage{tabu} % Adds additional customization for tables
+% \usepackage{booktabs} % For generally nicer looking tables
+% -- Algorithms
+\usepackage{listings} % Package for inserting code
+\usepackage{algorithm} % Algorithms https://www.overleaf.com/learn/latex/Algorithms
+\usepackage{algpseudocode} % Pseudo code
+% -- Drawing
+\usepackage{tikz}               % Package for drawing
+\usetikzlibrary{positioning}    % Additional library for relative positioning
+\usetikzlibrary{calc}           % Additional library for calculating within tikz
+\usepackage{pgfplots}           % Package for creating graphs and charts
 
+% Math
+\usepackage{amsmath, amsthm, amssymb, amsfonts} % For aligning equations among other
 
+% Utilities
+\usepackage{calc} % Adds ability for latex to calculate (3pt+2pt)
+\usepackage{siunitx} % SI units
 
+% Debugging
+\usepackage{lipsum} % Creates dummy text lorem ipsum for showcase
+% \usepackage{showlabels} % Display label names
 
 

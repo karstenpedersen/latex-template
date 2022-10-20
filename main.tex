@@ -3,21 +3,22 @@
 \input{base/index.tex}         % For aligning equations among other
 \input{settings.tex}
 
-\title{Test}
+
 \begin{document}
 
+% Frontmatter
 \include{frontmatter/frontpage.tex}
+\pagenumbering{roman}
 \include{frontmatter/abstract.tex}
-\tableofcontents
+\include{frontmatter/tableofcontents.tex}
 
 % Sections
-Hello, World!45
+\pagenumbering{arabic}
+\section{Hello, World!}
+\lipsum[1]
 
-\begin{align}\label{test}
-  A & =\frac{1}{2}
-\end{align}
-
-
-Reference:~\ref{test}
+% Backmatter
+\include{backmatter/bibliography.tex}
+\include{backmatter/appendix.tex}
 
 \end{document}
