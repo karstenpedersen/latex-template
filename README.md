@@ -7,21 +7,17 @@ Use this template to write reports for university.
 ### Build
 
 ```bash
-tectonic -X build -k
-
-# or
-
 make
+# or
+tectonic -X build -k
 ```
 
 ### Watch
 
 ```bash
-tectonic -X watch --exec "build -k"
-
-# or
-
 ./watch.sh
+# or
+tectonic -X watch --exec "build -k"
 ```
 
 ## Standards
