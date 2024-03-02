@@ -11,7 +11,7 @@ build:
 	tectonic -X build $(FLAGS)
 
 watch:
-	view
+	$(MAKE) view
 	tectonic -X watch --exec "build $(FLAGS)"
 
 view:
