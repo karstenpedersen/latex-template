@@ -8,16 +8,14 @@ Use this template to write reports for university.
 
 ```bash
 make
-# or
-tectonic -X build -k
 ```
 
 ### Watch
 
+Watch will start `VIEWER` and then watch for changes using Tectonic.
+
 ```bash
-./watch.sh
-# or
-tectonic -X watch --exec "build -k"
+make watch
 ```
 
 ## Standards
