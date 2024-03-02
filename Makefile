@@ -4,14 +4,14 @@ SRC_DIR := src
 BUILD_DIR := build
 FLAGS := --keep-intermediates
 
-PDF := $(NAME).pdf
 DEST_DIR := $(BUILD_DIR)/$(NAME)
+PDF := $(DEST_DIR)/$(NAME).pdf
 
-.PHONY: all copy_directories build watch view clean
+.PHONY: all init build watch view clean
 
 all: build
 
-copy_directories:
+init:
 	@echo "Creating build folder"
 	$(eval DIRS := $(shell find $(SRC_DIR) -type d))
 	@for dir in $(DIRS); do \
@@ -19,11 +19,11 @@ copy_directories:
 	done
 
 build:
-	$(MAKE) copy_directories
+	$(MAKE) init
 	tectonic -X build $(FLAGS)
 
 watch:
-	$(MAKE) copy_directories
+	$(MAKE) init
 	$(MAKE) view
 	tectonic -X watch --exec "build $(FLAGS)"
 
