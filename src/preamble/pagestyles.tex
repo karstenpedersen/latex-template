@@ -1,0 +1,42 @@
+% Page styles
+
+% Generel
+\newgeometry{top=2.81cm, bottom=2.75cm, outer=3cm, inner=3cm}
+
+% Frontmatter
+\fancypagestyle{frontmatter}{
+  \fancyhead{}
+  \fancyfoot{}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyfoot[R]{\footnotesize \thepage}
+  \fancyhfoffset{0pt}
+  \pagenumbering{roman}
+  \setlength{\headheight}{15pt}
+}
+
+% Main
+\fancypagestyle{main}{
+  \fancyhead{}
+  \fancyfoot{}
+  \fancyhead[L]{Karsten F. Pedersen}
+  \fancyhead[C]{}
+  \fancyhead[R]{DM510}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \fancyfoot[R]{Page \thepage\ of \pageref{LastPage}}
+  \fancyhfoffset{0pt}
+  \pagenumbering{arabic}
+  \setlength{\headheight}{15pt}
+}
+
+% Backmatter
+\fancypagestyle{backmatter}{
+  \fancyhead{}
+  \fancyfoot{}
+  \fancyhead[L]{Karsten F. Pedersen}
+  \fancyhead[C]{}
+  \fancyhead[R]{DM510}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \fancyfoot[R]{Page \thepage\ of \pageref{LastPage}}
+  \fancyhfoffset{0pt}
+  \setlength{\headheight}{15pt}
+}

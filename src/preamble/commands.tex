@@ -1,0 +1,16 @@
+% Commands
+
+% Highlighting
+\newcommand{\hlc}[2]{\sethlcolor{#1}\hl{#2}}
+
+% Code
+\newcommand{\code}[1]{\sethlcolor{codebackground}\hl{#1}}
+
+% Colored boxes
+\newtcolorbox{box-top}{
+    sharpish corners, % better drop shadow
+    boxrule = 0pt,
+    toprule = 4.5pt, % top rule weight
+    colback = backgroundcolor,
+    colframe = black
+}
