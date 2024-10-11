@@ -1,30 +1,66 @@
 % Config
 
-% Document
-\renewcommand{\title}{Title}
-\newcommand{\subtitle}{Subtitle}
-\renewcommand{\date}{Date}
+% Report
+\newcommand{\reportTitle}{Title}
+\newcommand{\reportSubtitle}{Subtitle}
+\newcommand{\reportDate}{Date}
 
-% Author
-\renewcommand{\author}{Author Name}
-\newcommand{\authornamefull}{Author}
-\newcommand{\authoremail}{student@mail.com}
-\newcommand{\studentnumber}{s123456}
+% Course
+\newcommand{\courseName}{Compiler Construction}
+\newcommand{\courseId}{course-id}
+\newcommand{\courseTeacher}{David Doe}
 
-\newcommand{\course}{DM???}
+% Author(s)
+\newcommand{\authorOneName}{Alice}
+\newcommand{\authorOneFullname}{Alice Doe}
+\newcommand{\authorOneMail}{alice@mail.com}
+\newcommand{\authorOneId}{12345679}
+
+\newcommand{\authorTwoName}{John}
+\newcommand{\authorTwoFullname}{John Doe}
+\newcommand{\authorTwoMail}{john@mail.com}
+\newcommand{\authorTwoId}{12345678}
+
+\newcommand{\authors}{
+	\authorOneFullname,~ \authorOneMail \\
+	\authorTwoFullname,~ \authorTwoMail
+}
+
+\newcommand{\authorsLine}{\authorOneName, \authorTwoName}
+
+\newcommand{\authorsTable}{
+	\begin{tabular}{ll}
+		\hline
+		Name & Mail \\
+		\hline
+		\authorOneFullname & \authorOneMail \\
+		\authorTwoFullname & \authorTwoMail
+	\end{tabular}
+}
+
+
+% Latex stuff
+\title{\reportTitle}
+\author{\authors}
+\date{\reportDate}
+
 
 % Front page
-\newcommand{\frontpagebottom}{Bottom}
+\newcommand{\frontpageBottom}{
+Det Naturvidenskabelige Fakultet \\
+Syddansk Universitet \\
+Danmark
+}
 
 % Page style
-\newcommand{\pagefrontleft}{\author}
-\newcommand{\pagefrontcenter}{}
-\newcommand{\pagefrontright}{\course}
+\newcommand{\pagefrontLeft}{\authorsLine}
+\newcommand{\pagefrontCenter}{}
+\newcommand{\pagefrontRight}{\courseId}
 
-\newcommand{\pagemiddleleft}{\author}
-\newcommand{\pagemiddlecenter}{}
-\newcommand{\pagemiddleright}{\course}
+\newcommand{\pagemiddleLeft}{\authorsLine}
+\newcommand{\pagemiddleCenter}{}
+\newcommand{\pagemiddleRight}{\courseId}
 
-\newcommand{\pagebackleft}{\author}
-\newcommand{\pagebackcenter}{}
-\newcommand{\pagebackright}{\course}
+\newcommand{\pagebackLeft}{\authorsLine}
+\newcommand{\pagebackCenter}{}
+\newcommand{\pagebackRight}{\courseId}

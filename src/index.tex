@@ -1,17 +1,18 @@
 % Frontmatter
-\input{content/frontmatter/frontpage}  
-\pagestyle{frontmatter}
-\include{content/frontmatter/abstract}
+\input{content/frontmatter/frontpage/frontpage}  
+
+\pagestyle{pagestyleFrontmatter}
+% \include{content/frontmatter/abstract}
 \include{content/frontmatter/toc}
 
 % Middle
-\pagestyle{middle}
+\pagestyle{pagestyleMiddle}
 \input{content/middle/introduction}
 \input{content/middle/design}
 \input{content/middle/implementation}
 \input{content/middle/conclusion}
 
 % Backmatter
-\pagestyle{backmatter}
+\pagestyle{pagestyleBackmatter}
 \include{content/backmatter/bibliography}
 \include{content/backmatter/appendix}

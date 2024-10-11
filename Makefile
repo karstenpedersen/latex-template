@@ -1,5 +1,5 @@
 NAME = report
-VIEWER := zathura
+VIEWER := xdg-open
 SRC_DIR := src
 BUILD_DIR := build
 FLAGS := --keep-intermediates
@@ -12,19 +12,16 @@ PDF := $(DEST_DIR)/$(NAME).pdf
 all: build
 
 init:
-	@echo "Creating build folder"
+	@echo "creating $(BUILD_DIR) folder"
 	$(eval DIRS := $(shell find $(SRC_DIR) -type d))
 	@for dir in $(DIRS); do \
 		mkdir -p $$(echo $$dir | sed 's|$(SRC_DIR)|$(DEST_DIR)|'); \
 	done
 
-build:
-	$(MAKE) init
+build: init
 	tectonic -X build $(FLAGS)
 
-watch:
-	$(MAKE) init
-	$(MAKE) view
+watch: init
 	tectonic -X watch --exec "build $(FLAGS)"
 
 view:
